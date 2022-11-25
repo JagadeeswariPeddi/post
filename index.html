@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		body{
+			background-image: url(https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80);
+			background-size: cover;
+			background-repeat:no-repeat;
+		}
+		.vibe{
+			text-align: center;
+			margin-top: 5%;
+			margin-top: 5%;
+		}
+	</style>
+	<script type="text/javascript">
+		function store(){
+			var username=document.getElementById("username").value
+			var password=document.getElementById("password").value
+			var gmale=document.getElementById("male").checked
+			var female=document.getElementById("female").checked
+			console.log(gmale,gfemale)
+			if(gmale==true) var gender="male"
+				else var gender="female"
+			console.log(password)
+		fetch("http://localhost:2002/newData",{
+			method:"POST",
+			headers:{
+				"Content-Type":"application/json"
+			},
+			body:JSON.stringify({name:username,password:password,gender:gendersssss})
+	})
+		.then((res)=>{
+			console.log(res)
+			if(res.status===200)
+				alert("data entered successfully")
+		})
+		.catch((err)=>{
+			alert(err)
+		})
+		}
+	</script>
+</head>
+<body>
+	<div class="vibe">
+   <p><input  placeholder="Username" id="username" /></p>
+    <p><input placeholder="Password" id="password" /></p>
+    <p><input type="radio" value="male" name="gender">Male
+    <input type="radio" value="female" name="gender">Female</p>
+    <p><input type="checkbox" value="yes" name="yes">Yes
+    	<input type="checkbox" value="no" name="no">No</p>
+    	<select><option value="select a city">Select a city
+    		<option value="andhra pradesh">Andhra Pradesh
+    			<option value="vizag">Vizag
+    			</select>
+<p><button onclick="store()">Submit</button></p>
+</div>
+</body>
+</html>
